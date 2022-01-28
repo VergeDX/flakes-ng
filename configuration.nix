@@ -14,6 +14,8 @@
       ./users.nix
       ./xserver.nix
 
+      ./networking/hostName-domain.nix
+
       ./nix/flakes.nix
     ];
 
@@ -21,8 +23,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "NixOS-RoT"; # Define your hostname.
-  networking.domain = "vanilla" + "." + "local";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Set your time zone.
