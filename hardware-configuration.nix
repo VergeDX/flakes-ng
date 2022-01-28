@@ -14,38 +14,33 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    {
-      fsType = "tmpfs";
-      options = [ "defaults" "size=2G" "mode=755" ];
-    };
+  fileSystems."/" = {
+    fsType = "tmpfs";
+    options = [ "defaults" "size=2G" "mode=755" ];
+  };
 
-  fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/D8F2-F6CB";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/D8F2-F6CB";
+    fsType = "vfat";
+  };
 
-  fileSystems."/nix" =
-    {
-      device = "/dev/disk/by-uuid/e03e0ab5-1871-425c-a9ae-801fa68ef45c";
-      fsType = "btrfs";
-      options = [ "subvol=nix" "noatime" "compress-force=zstd" ];
-    };
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-uuid/e03e0ab5-1871-425c-a9ae-801fa68ef45c";
+    fsType = "btrfs";
+    options = [ "subvol=nix" "noatime" "compress-force=zstd" ];
+  };
 
-  fileSystems."/persistent" =
-    {
-      device = "/dev/disk/by-uuid/e03e0ab5-1871-425c-a9ae-801fa68ef45c";
-      fsType = "btrfs";
-      options = [ "subvol=persistent" "noatime" "compress-force=zstd" ];
-    };
+  fileSystems."/persistent" = {
+    device = "/dev/disk/by-uuid/e03e0ab5-1871-425c-a9ae-801fa68ef45c";
+    fsType = "btrfs";
+    options = [ "subvol=persistent" "noatime" "compress-force=zstd" ];
+  };
 
-  fileSystems."/etc/nixos" =
-    {
-      device = "/persistent/persistent/Projects/flakes-ng";
-      fsType = "none";
-      options = [ "bind" ];
-    };
+  fileSystems."/etc/nixos" = {
+    device = "/persistent/persistent/Projects/flakes-ng";
+    fsType = "none";
+    options = [ "bind" ];
+  };
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
