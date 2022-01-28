@@ -15,6 +15,7 @@
       ./xserver.nix
 
       ./networking/hostName-domain.nix
+      ./networking/networkmanager.nix
 
       ./nix/flakes.nix
     ];
@@ -27,13 +28,6 @@
 
   # Set your time zone.
   # time.timeZone = "Europe/Amsterdam";
-
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
-  networking.interfaces.enp3s0f1.useDHCP = true;
-  networking.interfaces.wlp0s20f3.useDHCP = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
