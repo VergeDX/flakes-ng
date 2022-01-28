@@ -1,8 +1,12 @@
-{ ... }:
+{ config, ... }:
 {
   nixpkgs.config.allowUnfree = true;
   hardware.nvidia.modesetting.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
+
+  # Credit: github.com/Ninlives/nixos-config
+  services.xserver.displayManager.sessionCommands =
+    config.services.xserver.displayManager.setupCommands;
 
   hardware.nvidia.prime.sync.enable = true;
   hardware.nvidia.prime.intelBusId = "PCI:0:2:0";
