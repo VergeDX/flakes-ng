@@ -34,6 +34,7 @@
     device = "/dev/disk/by-uuid/e03e0ab5-1871-425c-a9ae-801fa68ef45c";
     fsType = "btrfs";
     options = [ "subvol=persistent" "noatime" "compress-force=zstd" ];
+    neededForBoot = true;
   };
 
   fileSystems."/etc/nixos" = {
