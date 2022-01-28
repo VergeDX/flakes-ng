@@ -14,14 +14,9 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" = {
-    fsType = "tmpfs";
-    options = [ "defaults" "size=2G" "mode=755" ];
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/D8F2-F6CB";
-    fsType = "vfat";
+  fileSystems = {
+    "/" = { fsType = "tmpfs"; options = [ "defaults" "size=2G" "mode=755" ]; };
+    "/boot" = { device = "/dev/disk/by-uuid/D8F2-F6CB"; fsType = "vfat"; };
   };
 
   fileSystems."/nix" = {
