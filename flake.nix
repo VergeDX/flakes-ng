@@ -12,14 +12,12 @@
 
   outputs = { self, ... }@inputs: with inputs;
     flake-utils.lib.eachDefaultSystem (system: {
-      packages = {
-        nixosConfigurations."NixOS-RoT" = nixos-stable.lib.nixosSystem rec {
-          inherit system;
-          modules = [ ./configuration.nix ] ++ [
-            home-manager.darwinModules.home-manager
-            { home-manager.users."vanilla" = import ./home.nix; }
-          ] ++ [{ home-manager.extraSpecialArgs = { inherit inputs; }; }];
-        };
+      packages.nixosConfigurations."NixOS-RoT" = nixos-stable.lib.nixosSystem rec {
+        inherit system;
+        modules = [ ./configuration.nix ] ++ [
+          home-manager.darwinModules.home-manager
+          { home-manager.users."vanilla" = import ./home.nix; }
+        ] ++ [{ home-manager.extraSpecialArgs = { inherit inputs; }; }];
       };
     });
 }
