@@ -1,7 +1,8 @@
 { inputs, config, ... }: with inputs;
 {
   imports = [ impermanence.nixosModules.home-manager.impermanence ]
-    ++ [ ./impermanence.nix ./dconf.nix ./file-links.nix ];
+    ++ [ ./impermanence.nix ./dconf.nix ./file-links.nix ]
+    ++ [ ./programs/chromium.nix ];
 
   home.file.".config/nixpkgs".source =
     config.lib.file.mkOutOfStoreSymlink
