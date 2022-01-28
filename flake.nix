@@ -6,6 +6,8 @@
     home-manager.url = "github:nix-community/home-manager/release-21.11";
     nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.inputs.nixpkgs.follows = "nixos-unstable";
+
+    impermanence.url = "github:nix-community/impermanence";
   };
 
   outputs = { self, ... }@inputs: with inputs;
@@ -16,7 +18,7 @@
           modules = [ ./configuration.nix ] ++ [
             home-manager.darwinModules.home-manager
             { home-manager.users."vanilla" = import ./home.nix; }
-          ];
+          ] ++ [{ home-manager.extraSpecialArgs = { inherit inputs; }; }];
         };
       };
     });
