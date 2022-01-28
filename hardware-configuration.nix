@@ -32,12 +32,7 @@
     neededForBoot = true;
   };
 
-  fileSystems."/etc/nixos" = {
-    device = "/persistent/Projects/flakes-ng";
-    fsType = "none";
-    options = [ "bind" ];
-  };
-
+  environment.etc."nixos".source = "/home/vanilla/Projects/flakes-ng";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
