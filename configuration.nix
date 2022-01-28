@@ -14,6 +14,7 @@
 
       ./users.nix
       ./xserver.nix
+      ./boot.nix
 
       ./networking/hostName-domain.nix
       ./networking/networkmanager.nix
@@ -22,10 +23,6 @@
 
       ./services/plymouth.nix
     ];
-
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
