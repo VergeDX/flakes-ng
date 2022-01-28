@@ -9,6 +9,8 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./fileSystems.nix
+
       ./users.nix
 
       ./nix/flakes.nix
