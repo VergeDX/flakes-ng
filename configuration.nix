@@ -19,6 +19,8 @@
       ./networking/networkmanager.nix
 
       ./nix/flakes.nix
+
+      ./services/plymouth.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
