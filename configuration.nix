@@ -8,8 +8,8 @@
   imports =
     [
       # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./fileSystems.nix
+      ./hardware/configuration.nix
+      ./hardware/fileSystems.nix
 
       ./users.nix
 
